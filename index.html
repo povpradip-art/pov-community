@@ -930,6 +930,32 @@
         transition: none !important;
       }
     }
+    .scroll-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+  padding-bottom: 30px;
+}
+
+.scroll-indicator span {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #ffbd38;
+  border-bottom: 2px solid #ffbd38;
+  transform: rotate(45deg);
+  animation: scrollHint 1.4s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+  0%, 100% {
+    transform: translateY(-4px) rotate(45deg);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(5px) rotate(45deg);
+    opacity: 1;
+  }
+}
   </style>
 </head>
 
@@ -1219,6 +1245,10 @@ window.addEventListener("wheel", (event) => {
     access.getBoundingClientRect().top + window.scrollY;
   const heroTop =
     hero.getBoundingClientRect().top + window.scrollY;
+
+  <div class="scroll-indicator" aria-label="Scroll ke bawah">
+  <span></span>
+</div>
 
   // Dari Quick Access turun ke bagian perkenalan.
   if (
