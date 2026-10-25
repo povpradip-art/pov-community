@@ -918,21 +918,28 @@
     }
 /* Animasi panah scroll naik-turun */
 .scroll-cue {
-  animation: none;
+  animation: none !important;
 }
 
-.scroll-cue svg {
-  animation: arrowBounce 1s ease-in-out infinite;
-  will-change: transform;
+.scroll-cue > svg {
+  animation: povArrowBounce 0.7s ease-in-out infinite !important;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-@keyframes arrowBounce {
+@keyframes povArrowBounce {
   0%, 100% {
     transform: translateY(0);
   }
 
   50% {
-    transform: translateY(10px);
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue > svg {
+    animation: povArrowBounce 0.7s ease-in-out infinite !important;
   }
 }   
   </style>
