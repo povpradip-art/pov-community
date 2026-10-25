@@ -107,7 +107,7 @@
 
 .access-section {
   min-height: 0;
-  padding: 42px 7% 0;
+  padding: 42px 7% 180px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -610,7 +610,7 @@
 
       .access-section {
         min-height: 0;
-        padding: 32px 20px 30px;
+        padding: 32px 20px 100px;
       }
 
       .section-heading {
@@ -893,9 +893,8 @@
     (() => {
       const access = document.querySelector(".access-section");
       const hero = document.querySelector("#about");
-      const cue = document.querySelector(".scroll-cue");
 
-      if (!access || !hero || !cue) return;
+      if (!access || !hero) return;
 
       let busy = false;
       let animationFrame = null;
@@ -938,12 +937,6 @@
 
         animationFrame = requestAnimationFrame(step);
       }
-
-      // Klik indikator tetap menuju hero dengan animasi yang sama.
-      cue.addEventListener("click", (event) => {
-        event.preventDefault();
-        animateTo(hero.offsetTop);
-      });
 
       // Satu gerakan roda mouse memindahkan layar antarbagian.
 window.addEventListener("wheel", (event) => {
