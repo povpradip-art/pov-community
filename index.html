@@ -916,20 +916,25 @@
         transition: none !important;
       }
     }
-    /* Animasi panah scroll naik-turun */
-.scroll-cue > svg,
-.scroll-cue .scroll-arrow {
-  animation: arrowBounce 1.2s ease-in-out infinite;
+/* Animasi panah scroll naik-turun */
+.scroll-cue {
+  animation: none;
+}
+
+.scroll-cue svg {
+  animation: arrowBounce 1s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes arrowBounce {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(9px);
+    transform: translateY(10px);
   }
-}    
+}   
   </style>
 </head>
 
