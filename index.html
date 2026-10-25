@@ -26,7 +26,7 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       scroll-snap-type: none;
     }
 
@@ -877,6 +877,105 @@
 
   </main>
 
+ 
   <footer>© 2026 P.O.V. — Pradip On Website</footer>
+
+  <script>
+    (() => {
+      const access = document.querySelector(".access-section");
+      const hero = document.querySelector("#about");
+      const cue = document.querySelector(".scroll-cue");
+
+      if (!access || !hero || !cue) return;
+
+      let busy = false;
+      let animationFrame = null;
+      let lastWheelTime = 0;
+
+      function animateTo(target) {
+        if (busy) return;
+
+        busy = true;
+
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+        }
+
+        const start = window.scrollY;
+        const distance = target - start;
+        const duration = 850;
+        const startTime = performance.now();
+
+        function step(now) {
+          const progress = Math.min(
+            (now - startTime) / duration,
+            1
+          );
+
+          // Ease-in-out: awal dan akhir gerakan lebih lembut.
+          const eased = progress < 0.5
+            ? 4 * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+          window.scrollTo(0, start + distance * eased);
+
+          if (progress < 1) {
+            animationFrame = requestAnimationFrame(step);
+          } else {
+            animationFrame = null;
+            busy = false;
+          }
+        }
+
+        animationFrame = requestAnimationFrame(step);
+      }
+
+      // Klik indikator tetap menuju hero dengan animasi yang sama.
+      cue.addEventListener("click", (event) => {
+        event.preventDefault();
+        animateTo(hero.offsetTop);
+      });
+
+      // Satu gerakan roda mouse memindahkan layar antarbagian.
+      window.addEventListener("wheel", (event) => {
+        if (event.ctrlKey || Math.abs(event.deltaY) < 8) return;
+
+        const now = performance.now();
+
+        if (busy || now - lastWheelTime < 1100) {
+          if (busy) event.preventDefault();
+          return;
+        }
+
+        const y = window.scrollY;
+        const accessTop = access.offsetTop;
+        const heroTop = hero.offsetTop;
+        const tolerance = 100;
+
+        // Dari kartu ke hero.
+        if (
+          event.deltaY > 0 &&
+          y < heroTop - tolerance &&
+          y <= accessTop + tolerance
+        ) {
+          event.preventDefault();
+          lastWheelTime = now;
+          animateTo(heroTop);
+          return;
+        }
+
+        // Dari hero kembali ke kartu.
+        if (
+          event.deltaY < 0 &&
+          Math.abs(y - heroTop) <= tolerance
+        ) {
+          event.preventDefault();
+          lastWheelTime = now;
+          animateTo(0);
+        }
+      }, { passive: false });
+    })();
+  </script>
 </body>
 </html>
+
