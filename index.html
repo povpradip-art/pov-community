@@ -331,55 +331,41 @@
       border-color: rgba(195,161,91,.35);
     }
 
-    /* SCROLL INDICATOR */
+    /* SCROLL INDICATOR: small arrow only */
 
-
-  .scroll-cue {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 11px;
-    margin: 35px auto 25px;
-    padding: 12px 10px 0;
-    text-decoration: none;
-    color: var(--amber);
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 72px;
+      transform: translateX(-50%);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: var(--amber);
+      text-decoration: none;
+      opacity: .8;
+      animation: arrowFloat 1.8s ease-in-out infinite;
     }
 
-
-    .mouse {
-      width: 21px;
-      height: 34px;
-      border: 1.5px solid var(--amber);
-      border-radius: 14px;
-      display: flex;
-      justify-content: center;
-      padding-top: 6px;
+    .scroll-cue svg {
+      display: block;
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
     }
 
-    .mouse::before {
-      content: "";
-      width: 3px;
-      height: 6px;
-      border-radius: 3px;
-      background: var(--amber);
-      animation: scrollDot 1.5s ease-in-out infinite;
+    .scroll-cue:hover {
+      opacity: 1;
     }
 
-    .scroll-text {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 4px;
-    }
-
-    @keyframes scrollDot {
-      0%,100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      70% {
-        transform: translateY(8px);
-        opacity: .2;
-      }
+    @keyframes arrowFloat {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 7px); }
     }
 
     /* HERO: DIRECTLY AFTER CARDS */
@@ -930,32 +916,6 @@
         transition: none !important;
       }
     }
-    .scroll-indicator {
-  display: flex;
-  justify-content: center;
-  margin-top: 90px;
-  padding-bottom: 30px;
-}
-
-.scroll-indicator span {
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid #ffbd38;
-  border-bottom: 2px solid #ffbd38;
-  transform: rotate(45deg);
-  animation: scrollHint 1.4s ease-in-out infinite;
-}
-
-@keyframes scrollHint {
-  0%, 100% {
-    transform: translateY(-4px) rotate(45deg);
-    opacity: 0.45;
-  }
-  50% {
-    transform: translateY(5px) rotate(45deg);
-    opacity: 1;
-  }
-}
   </style>
 </head>
 
@@ -1077,6 +1037,11 @@
         </div>
 
       </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll ke bagian perkenalan">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4v15M5.5 12.5 12 19l6.5-6.5"/>
+        </svg>
+      </a>
     </section>
     
     <!-- HERO: P.O.V. -->
@@ -1245,10 +1210,6 @@ window.addEventListener("wheel", (event) => {
     access.getBoundingClientRect().top + window.scrollY;
   const heroTop =
     hero.getBoundingClientRect().top + window.scrollY;
-
-  <div class="scroll-indicator" aria-label="Scroll ke bawah">
-  <span></span>
-</div>
 
   // Dari Quick Access turun ke bagian perkenalan.
   if (
