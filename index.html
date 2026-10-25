@@ -121,18 +121,20 @@
   );
 }
 
-    .access-section::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(
-        ellipse at 50% 30%,
-        rgba(120,68,15,.08),
-        transparent 65%
-      );
-    }
+.access-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 65%,
+      rgba(120, 68, 15, .13) 0%,
+      rgba(90, 47, 10, .07) 38%,
+      transparent 75%
+    );
+}
 
     .section-heading {
       width: 100%;
@@ -396,14 +398,16 @@
       background:
   radial-gradient(
     ellipse at 50% 0%,
-    rgba(175, 91, 13, .13) 0%,
-    rgba(100, 49, 10, .07) 35%,
-    transparent 72%
+    rgba(145, 72, 12, .12) 0%,
+    rgba(90, 43, 8, .07) 32%,
+    rgba(35, 20, 8, .03) 58%,
+    transparent 78%
   ),
   linear-gradient(
     180deg,
     #110c08 0%,
-    #0d0a08 45%,
+    #0e0b08 35%,
+    #0b0a08 75%,
     #0b0a08 100%
   );
     }
@@ -417,11 +421,11 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%,-10%);
-      border: 1px solid rgba(255,189,56,.08);
+      border: 1px solid rgba(255, 189, 56, .035);
       border-radius: 50%;
       box-shadow:
-        0 0 0 100px rgba(255,189,56,.012),
-        0 0 0 200px rgba(255,189,56,.008);
+          0 0 0 100px rgba(255, 189, 56, .006),
+          0 0 0 200px rgba(255, 189, 56, .003);
       pointer-events: none;
     }
 
