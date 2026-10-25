@@ -386,7 +386,6 @@
 
     .hero {
       min-height: 100vh;
-      margin-top: 100px;
       min-height: 100svh;
       position: relative;
       isolation: isolate;
@@ -947,43 +946,43 @@
       });
 
       // Satu gerakan roda mouse memindahkan layar antarbagian.
-      window.addEventListener("wheel", (event) => {
-        if (event.ctrlKey || Math.abs(event.deltaY) < 8) return;
+window.addEventListener("wheel", (event) => {
+  if (event.ctrlKey || Math.abs(event.deltaY) < 8) return;
 
-        const now = performance.now();
+  const now = performance.now();
 
-        if (busy || now - lastWheelTime < 1100) {
-          if (busy) event.preventDefault();
-          return;
-        }
+  if (busy || now - lastWheelTime < 1100) {
+    if (busy) event.preventDefault();
+    return;
+  }
 
-        const y = window.scrollY;
-        const accessTop = access.offsetTop;
-        const heroTop = hero.offsetTop;
-        const tolerance = 100;
+  const y = window.scrollY;
+  const accessTop = access.getBoundingClientRect().top + window.scrollY;
+  const heroTop = hero.getBoundingClientRect().top + window.scrollY;
+  const tolerance = 100;
 
-        // Dari kartu ke hero.
-        if (
-          event.deltaY > 0 &&
-          y < heroTop - tolerance &&
-          y <= accessTop + tolerance
-        ) {
-          event.preventDefault();
-          lastWheelTime = now;
-          animateTo(heroTop);
-          return;
-        }
+  // Dari Quick Access turun ke hero.
+  if (
+    event.deltaY > 0 &&
+    y < heroTop - tolerance &&
+    y <= accessTop + access.offsetHeight - window.innerHeight + tolerance
+  ) {
+    event.preventDefault();
+    lastWheelTime = now;
+    animateTo(heroTop);
+    return;
+  }
 
-        // Dari hero kembali ke kartu.
-        if (
-          event.deltaY < 0 &&
-          Math.abs(y - heroTop) <= tolerance
-        ) {
-          event.preventDefault();
-          lastWheelTime = now;
-          animateTo(0);
-        }
-      }, { passive: false });
+  // Dari hero naik kembali ke Quick Access.
+  if (
+    event.deltaY < 0 &&
+    Math.abs(y - heroTop) <= tolerance
+  ) {
+    event.preventDefault();
+    lastWheelTime = now;
+    animateTo(accessTop);
+  }
+}, { passive: false });
     })();
   </script>
 </body>
