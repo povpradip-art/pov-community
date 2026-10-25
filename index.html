@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b10">
+  <title>P.O.V. — Gaming Community</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b10;
+      color: #f5f5f7;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      border-bottom: 1px solid #292933;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    nav a {
+      color: #c7c7d1;
+      text-decoration: none;
+      margin-left: 22px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(ellipse at top, #34205c 0%, #0b0b10 65%);
+    }
+
+    .tag {
+      color: #c5a6ff;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(52px, 10vw, 100px);
+      margin: 22px 0 12px;
+      letter-spacing: 5px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      color: #b6b6c5;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 26px;
+      background: #a879ff;
+      color: #10091d;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 55px 8%;
+    }
+
+    h2 { font-size: 30px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .card {
+      padding: 25px;
+      background: #15151e;
+      border: 1px solid #2b2b39;
+      border-radius: 14px;
+    }
+
+    .card p, footer { color: #a7a7b8; line-height: 1.7; }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      border-top: 1px solid #292933;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">P.O.V.</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#community">Community</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="tag">YOUR COMMUNITY. YOUR RULES.</div>
+      <h1>P.O.V.</h1>
+      <p>
+        Satu tempat untuk gaming, berbagi meme,
+        ngobrol, dan membangun komunitas bersama.
+        Semua perspektif punya cerita.
+      </p>
+      <a class="button"
+         href="https://discord.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        JOIN OUR COMMUNITY ↗
+      </a>
+    </header>
+
+    <section id="about">
+      <div class="tag">WELCOME TO P.O.V.</div>
+      <h2>Bukan Sekadar Main Game.</h2>
+      <p class="card">
+        P.O.V. adalah rumah bagi para gamer dan
+        penikmat konten yang ingin bermain,
+        bersantai, berbagi, dan tumbuh bersama.
+      </p>
+    </section>
+
+    <section id="community">
+      <div class="tag">EXPLORE OUR WORLD</div>
+      <h2>Ada Tempat Buat Kamu.</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>🎮 Gaming</h3>
+          <p>Bahas game favorit, pengalaman bermain,
+          dan momen paling absurd.</p>
+        </article>
+        <article class="card">
+          <h3>😂 Meme & Fun</h3>
+          <p>Bagikan meme dan hiburan untuk
+          meramaikan komunitas.</p>
+        </article>
+        <article class="card">
+          <h3>📡 Live & Creator</h3>
+          <p>Temukan konten, jadwal live,
+          dan aktivitas komunitas.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 P.O.V. Community · Made for gamers.
+  </footer>
+</body>
+</html>
