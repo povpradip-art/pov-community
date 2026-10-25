@@ -105,14 +105,21 @@
 
     /* FIRST SECTION: HEIGHT FOLLOWS CONTENT */
 
-    .access-section {
-      min-height: 0;
-      padding: 42px 7% 0;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      isolation: isolate;
-    }
+.access-section {
+  min-height: 0;
+  padding: 42px 7% 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    #0b0a08 0%,
+    #0d0a07 45%,
+    #100b07 75%,
+    #110c08 100%
+  );
+}
 
     .access-section::before {
       content: "";
@@ -386,18 +393,19 @@
       text-align: center;
       overflow: hidden;
       padding: 90px 24px;
-      border-top: 1px solid rgba(255,189,56,.14);
       background:
-        radial-gradient(
-          ellipse at 50% 12%,
-          rgba(175,91,13,.2),
-          transparent 48%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(12,10,8,.35),
-          rgba(8,8,7,.94)
-        );
+  radial-gradient(
+    ellipse at 50% 0%,
+    rgba(175, 91, 13, .13) 0%,
+    rgba(100, 49, 10, .07) 35%,
+    transparent 72%
+  ),
+  linear-gradient(
+    180deg,
+    #110c08 0%,
+    #0d0a08 45%,
+    #0b0a08 100%
+  );
     }
 
     .hero::before {
