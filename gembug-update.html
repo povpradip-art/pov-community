@@ -21,9 +21,9 @@
     <p>Dengan melanjutkan, kamu memahami cara kerja Workout Bank dan event Gembug.</p>
     <div class="rules">
       <section class="rule"><h3>01 — Workout Bank</h3><p>Hanya donasi melalui soundboard Gembug yang terdaftar dan berhasil diproses yang menambah kewajiban latihan. Donasi biasa tidak dihitung. Repetisi atau durasi yang terkumpul menjadi tabungan latihan dan dapat diselesaikan bertahap; tidak harus langsung dalam satu sesi.</p></section>
-      <section class="rule"><h3>02 — Final Boss</h3><p>Final Boss adalah tantangan combo 4 workout berbeda dengan total 100 repetisi dalam batas waktu 20 menit Contoh: (25 push-up, 25 squat, 25 bicep curl, dan 25 band-over row). Jika berhasil, Workout Bank tidak berubah. Jika gagal, nilai Workout Bank dikalikan dua. Kewajiban latihan tidak harus dikerjakan seketika.</p></section>
+      <section class="rule"><h3>02 — Final Boss</h3><p>Final Boss adalah event terpisah: target bawaan 20 menit untuk menyelesaikan 25 push-up, 25 squat, 25 bicep curl, dan 25 band row. Jika berhasil, Workout Bank tidak berubah. Jika gagal, nilai Workout Bank dikalikan dua. Kewajiban tidak harus dikerjakan seketika.</p></section>
       <section class="rule"><h3>03 — Time Attack</h3><p>Setiap aktivasi soundboard Time Attack yang valid mengurangi waktu Final Boss sebanyak 20 detik. Time Attack tidak menambah atau mengurangi Workout Bank secara langsung.</p></section>
-      <section class="rule"><h3>04 — Tampilan publik</h3><p>Halaman ini hanya untuk melihat status dan aturan. Data diperbarui otomatis secara berkala; halaman ini tidak menyediakan kontrol untuk mengubah Workout Bank, antrean, atau timer.</p></section>
+      <section class="rule"><h3>04 — Tampilan publik</h3><p>Halaman ini hanya untuk melihat status dan aturan. Data publik berupa snapshot yang diperbarui oleh admin melalui halaman admin terpisah. Halaman ini hanya menampilkan data dan tidak mengubah Workout Bank, antrean, atau timer.</p></section>
     </div>
     <label class="accept"><input type="checkbox" id="acceptRules"><span>Saya sudah membaca dan memahami aturan di atas.</span></label>
     <button class="continue" id="continueBtn" disabled>Lanjut ke Gembug Update</button>
@@ -36,8 +36,9 @@
     <article class="panel"><div class="panel-head"><h2>Workout Bank</h2><span class="tag">Tabungan latihan</span></div><div class="bank-list" id="bankList"><div class="empty">Memuat data Workout Bank…</div></div></article>
     <article class="panel"><div class="panel-head"><h2>Final Boss Queue</h2><span class="tag">Antrean</span></div><div class="queue-list" id="queueList"><div class="empty">Memuat antrean…</div></div></article>
   </section>
-  <section class="section"><div class="section-head"><div><h2>Soundboard Gembug</h2><p>Jumlah latihan dan harga sesuai konfigurasi aktif.</p></div><button class="refresh" id="refreshBtn" type="button">↻ Perbarui</button></div><div class="movement-grid" id="movementGrid"><div class="empty">Memuat konfigurasi soundboard…</div></div></section>
-  <footer class="foot"><span id="updatedAt">Terakhir diperbarui: —</span><span id="statusText">Data hanya-baca · refresh otomatis</span></footer>
+  <section class="section"><div class="section-head"><div><h2>Soundboard Gembug</h2><p>Jumlah latihan dan harga sesuai konfigurasi aktif.</p></div><button class="refresh" id="refreshBtn" type="button">↻ Muat Ulang Tampilan</button></div><div class="movement-grid" id="movementGrid"><div class="empty">Memuat konfigurasi soundboard…</div></div></section>
+
+<footer class="foot"><span id="updatedAt">Snapshot diperbarui: —</span><span id="statusText">Data publik hanya-baca · tanpa refresh otomatis</span></footer>
 </main>
 <script>
 (() => {
@@ -78,12 +79,13 @@
       if (!response.ok || data.success !== true) throw new Error(data.error || "API belum siap");
       renderBank(data.bank || []); renderQueue(data.queue || []); renderMovements(data.workouts || []);
       $("connectionText").textContent = "Data tersambung";
-      $("statusText").textContent = "Data hanya-baca · refresh otomatis tiap 30 detik";
-      const date = new Date(data.updatedAt || Date.now());
-      $("updatedAt").textContent = "Terakhir diperbarui: " + (Number.isNaN(date.getTime()) ? "baru saja" : date.toLocaleString("id-ID"));
+      $("statusText").textContent = "Snapshot publik · tanpa refresh otomatis";
+      const date = new Date(data.publishedAt || data.updatedAt || Date.now());
+      $("updatedAt").textContent = "Snapshot diperbarui: " + (Number.isNaN(date.getTime()) ? "waktu tidak tersedia" : date.toLocaleString("id-ID"));
+      $("bankList").dataset.loaded = "true";
     } catch (err) {
       $("connectionText").textContent = "Data belum tersedia";
-      $("statusText").innerHTML = '<span class="error">API belum tersambung. Pastikan secret Cloudflare sudah diatur.</span>';
+      $("statusText").innerHTML = '<span class="error">Snapshot belum tersedia atau gagal dimuat. Admin perlu memublikasikan data dari Cloudflare.</span>';
       if (!$ ("bankList").dataset.loaded) {
         $("bankList").innerHTML = '<div class="empty">Data belum bisa dimuat. Coba lagi sebentar.</div>';
         $("queueList").innerHTML = '<div class="empty">Antrean belum bisa dimuat.</div>';
@@ -92,9 +94,9 @@
       console.warn("Gembug Update API:", err.message);
     }
   }
+  // Public button reloads the saved snapshot only; it does not call Apps Script.
   $("refreshBtn").addEventListener("click", loadData);
-  // Refresh only while the page is visible to avoid needless requests.
-  setInterval(() => { if (!document.hidden && !modal.classList.contains("hidden")) return; if (!document.hidden) loadData(); }, 30000);
+
 })();
 </script>
 </body>
