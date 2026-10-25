@@ -1266,6 +1266,7 @@
       }
 
       // Satu gerakan roda mouse memindahkan layar antarbagian.
+
 window.addEventListener("wheel", (event) => {
   if (event.ctrlKey || Math.abs(event.deltaY) < 8) return;
 
@@ -1277,31 +1278,31 @@ window.addEventListener("wheel", (event) => {
   }
 
   const y = window.scrollY;
-  const accessTop = access.getBoundingClientRect().top + window.scrollY;
-  const heroTop = hero.getBoundingClientRect().top + window.scrollY;
-  const tolerance = 100;
+  const accessTop =
+    access.getBoundingClientRect().top + window.scrollY;
+  const heroTop =
+    hero.getBoundingClientRect().top + window.scrollY;
 
-  // Dari Quick Access turun ke hero.
+  // Dari Quick Access turun ke bagian perkenalan.
   if (
-  event.deltaY > 0 &&
-  y < heroTop - tolerance
-) {
+    event.deltaY > 0 &&
+    y <= accessTop + 100 &&
+    y < heroTop - 100
+  ) {
     event.preventDefault();
     lastWheelTime = now;
-    animateTo(heroTop - 260);
+    animateTo(heroTop - 80);
     return;
   }
 
-  // Dari hero naik kembali ke Quick Access.
-if (
-  event.deltaY < 0 &&
-  y > accessTop
-) {
+  // Dari bagian perkenalan naik kembali ke paling atas.
+  if (event.deltaY < 0 && y > accessTop + 100) {
     event.preventDefault();
     lastWheelTime = now;
     animateTo(0);
   }
 }, { passive: false });
+
     })();
   </script>
 </body>
