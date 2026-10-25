@@ -525,6 +525,177 @@
       letter-spacing: -1px;
       margin: 0;
     }
+    /* ABOUT: INTRODUCTION + PLATFORM */
+
+.about-section {
+  min-height: auto;
+  display: block;
+  text-align: left;
+  padding: 80px 8% 90px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(145, 72, 12, .10),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      #0b0a08 0%,
+      #090807 100%
+    );
+}
+
+.about-section .welcome-inner {
+  max-width: 1400px;
+}
+
+.about-intro {
+  max-width: 850px;
+}
+
+.about-intro .eyebrow,
+.platform-intro .eyebrow {
+  margin-bottom: 20px;
+}
+
+.about-section .welcome-title {
+  line-height: 1.2;
+}
+
+.intro-copy {
+  max-width: 850px;
+  margin-top: 26px;
+  color: #bdb7ad;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.intro-copy p {
+  margin: 0 0 18px;
+}
+
+.platform-intro {
+  margin-top: 70px;
+  padding-top: 38px;
+  border-top: 1px solid rgba(255, 189, 56, .18);
+}
+
+.platform-lead {
+  max-width: 680px;
+  margin: 18px 0 30px;
+  color: #aaa69d;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.platform-item {
+  min-width: 0;
+  padding: 24px 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(35, 27, 16, .72),
+    rgba(15, 13, 10, .65)
+  );
+  border: 1px solid rgba(255, 189, 56, .25);
+  border-radius: 10px;
+  transition:
+    border-color .25s ease,
+    transform .25s ease,
+    background .25s ease;
+}
+
+.platform-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 189, 56, .55);
+  background: rgba(30, 23, 14, .85);
+}
+
+.platform-number {
+  color: var(--amber);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.platform-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0 12px;
+}
+
+.platform-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 189, 56, .15);
+  border-radius: 12px;
+  color: var(--amber);
+  background: linear-gradient(145deg, #2b2112, #14110c);
+  font-size: 25px;
+}
+
+.platform-item h3 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.platform-item p {
+  margin: 0;
+  color: #aaa69d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.platform-closing {
+  margin-top: 28px;
+  color: var(--amber);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-item {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: 55px 22px 65px;
+  }
+
+  .platform-intro {
+    margin-top: 48px;
+    padding-top: 30px;
+  }
+
+  .intro-copy {
+    font-size: 14px;
+  }
+
+  .platform-grid {
+    gap: 14px;
+  }
+
+  .platform-item h3 {
+    font-size: 19px;
+  }
+}
     .intro-copy {
   max-width: 850px;
   margin-top: 28px;
@@ -943,27 +1114,99 @@
     </section>
     
     <!-- HERO: P.O.V. -->
-    <section class="hero" id="about">
-      <div class="hero-content">
-        <p class="hero-eyebrow">PRADIPTA ON VIDEO</p>
+    <!-- ABOUT: INTRODUCTION + PLATFORM -->
+    <section class="hero about-section" id="about">
+      <div class="welcome-inner">
 
-        <h1 class="hero-title">
-          P.O.<span class="highlight">V.</span>
-        </h1>
+        <div class="about-intro">
+          <div class="eyebrow">Behind the P.O.V.</div>
 
-        <p class="hero-description">
-          Cerita, perspektif, dan kreativitas dalam satu ruang.
-          Kenali orang di balik P.O.V. dan hal-hal yang ingin aku bagikan.
-        </p>
+          <h1 class="welcome-title">Halo, aku Pradipta Naratama.</h1>
 
-        <a class="primary-button" href="#introduction">
-          KENALI AKU LEBIH DEKAT
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round"
-               stroke-linejoin="round" aria-hidden="true">
-            <path d="M7 17 17 7M7 7h10v10"/>
-          </svg>
-        </a>
+          <div class="intro-copy">
+            <p>
+              Aku lulusan SMK Multimedia yang punya ketertarikan pada dunia
+              visual, cerita, dan cara sebuah ide bisa diwujudkan menjadi
+              sesuatu yang bisa dinikmati orang lain.
+            </p>
+
+            <p>
+              Aku suka film, anime, dan fotografi. Ketertarikan itu juga
+              terbawa ke dunia konten, mulai dari gaming dan live streaming
+              hingga mencoba berbagai ide kreatif dalam format video.
+            </p>
+
+            <p>
+              Di luar layar, aku juga menikmati hiking dan kegiatan outdoor,
+              meskipun belum terlalu sering melakukannya. Buatku, selalu ada
+              hal baru yang bisa ditemukan, baik lewat sebuah karya maupun
+              pengalaman secara langsung.
+            </p>
+
+            <p>
+              Melalui P.O.V., aku ingin terus berkarya, bereksperimen, dan
+              berbagi pengalaman dengan caraku sendiri. Bukan hanya tentang
+              game yang dimainkan, tetapi juga cerita, proses, dan berbagai
+              hal menarik yang layak dibagikan.
+            </p>
+          </div>
+        </div>
+
+        <div class="platform-intro">
+          <div class="eyebrow">My Creative Space</div>
+
+          <h2 class="welcome-title">Satu kreator, tiga perspektif.</h2>
+
+          <p class="platform-lead">
+            Setiap platform punya cerita dan sisi yang berbeda untuk dibagikan.
+            Yuk, kenali lebih dekat apa yang aku buat di masing-masing ruang.
+          </p>
+
+          <div class="platform-grid">
+            <article class="platform-item">
+              <span class="platform-number">01 / VIDEO &amp; LIVE</span>
+              <div class="platform-heading">
+                <span class="platform-icon">▶</span>
+                <h3>YouTube</h3>
+              </div>
+              <p>
+                Rumah utama kontenku. Tempat aku bermain game, melakukan
+                live streaming, berbagi video lengkap, dan berinteraksi
+                langsung dengan penonton.
+              </p>
+            </article>
+
+            <article class="platform-item">
+              <span class="platform-number">02 / SHORT MOMENTS</span>
+              <div class="platform-heading">
+                <span class="platform-icon">♪</span>
+                <h3>TikTok</h3>
+              </div>
+              <p>
+                Kumpulan potongan dari konten YouTube, highlight streaming,
+                momen lucu, dan klip singkat yang seru untuk ditonton
+                tanpa harus mengikuti keseluruhan live.
+              </p>
+            </article>
+
+            <article class="platform-item">
+              <span class="platform-number">03 / PERSONAL SIDE</span>
+              <div class="platform-heading">
+                <span class="platform-icon">◎</span>
+                <h3>Instagram</h3>
+              </div>
+              <p>
+                Sisi yang lebih personal: foto, keseharian, behind the scenes,
+                dan hal-hal visual yang menarik perhatianku di luar konten.
+              </p>
+            </article>
+          </div>
+
+          <p class="platform-closing">
+            Tiga platform, tiga cara bercerita — semuanya tetap bagian dari P.O.V.
+          </p>
+        </div>
+
       </div>
     </section>
 
