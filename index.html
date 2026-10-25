@@ -956,10 +956,9 @@ window.addEventListener("wheel", (event) => {
 
   // Dari Quick Access turun ke hero.
   if (
-    event.deltaY > 0 &&
-    y < heroTop - tolerance &&
-    y <= accessTop + access.offsetHeight - window.innerHeight + tolerance
-  ) {
+  event.deltaY > 0 &&
+  y < heroTop - tolerance
+) {
     event.preventDefault();
     lastWheelTime = now;
     animateTo(heroTop);
