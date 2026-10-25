@@ -916,6 +916,20 @@
         transition: none !important;
       }
     }
+    /* Animasi panah scroll naik-turun */
+.scroll-cue > svg,
+.scroll-cue .scroll-arrow {
+  animation: arrowBounce 1.2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px);
+  }
+}    
   </style>
 </head>
 
