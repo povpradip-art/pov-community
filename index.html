@@ -1288,7 +1288,7 @@ window.addEventListener("wheel", (event) => {
 ) {
     event.preventDefault();
     lastWheelTime = now;
-    animateTo(heroTop - 100);
+    animateTo(heroTop - 180);
     return;
   }
 
@@ -1299,7 +1299,7 @@ window.addEventListener("wheel", (event) => {
   ) {
     event.preventDefault();
     lastWheelTime = now;
-    animateTo(accessTop + 80);
+    animateTo(0);
   }
 }, { passive: false });
     })();
