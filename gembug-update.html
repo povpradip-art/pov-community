@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>Gembug Update — P.O.V.</title>
+<style>
+:root{color-scheme:dark;--bg:#101010;--panel:#191919;--panel2:#202020;--line:#343434;--amber:#ffb52e;--text:#f5f5f5;--muted:#a6a6a6;--green:#83d69b;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211a0e 0,#101010 48rem);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto;padding:30px 0 48px}.topline{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:20px}.brand{font-size:13px;letter-spacing:.22em;color:var(--amber);font-weight:800}.live{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #83d69b66}.hero{padding:28px 0 24px}.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--amber);font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.03;margin:10px 0}.hero p{margin:0;color:var(--muted);max-width:650px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{background:linear-gradient(145deg,#1d1d1d,#151515);border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.panel h2{font-size:18px;margin:0}.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #684b19;background:#2b2110;color:var(--amber);border-radius:999px;padding:4px 9px}.bank-list{display:grid;gap:12px}.bank-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #2d2d2d}.bank-row:last-child{border:0;padding-bottom:0}.bank-name{font-weight:700}.sub{font-size:12px;color:var(--muted)}.amount{text-align:right;font-weight:800;font-size:20px;color:var(--amber);white-space:nowrap}.queue-list{display:grid;gap:10px}.queue-item{display:flex;align-items:center;gap:12px;background:#202020;border:1px solid #303030;border-radius:12px;padding:11px 12px}.number{width:30px;height:30px;border-radius:9px;background:#332611;color:var(--amber);display:grid;place-items:center;font-weight:800;flex:none}.queue-name{font-weight:700;overflow-wrap:anywhere}.queue-status{margin-left:auto;color:var(--muted);font-size:12px;text-align:right}.empty{padding:24px 12px;text-align:center;color:var(--muted);border:1px dashed #3b3b3b;border-radius:12px}.section{margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}.section h2{font-size:22px;margin:0}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.movement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.movement{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.movement h3{margin:0 0 8px;font-size:15px}.quantity{font-size:24px;font-weight:850;color:var(--amber)}.price{margin-top:6px;font-weight:700}.inactive{display:inline-block;font-size:11px;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:999px;margin-top:8px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:24px;border-top:1px solid var(--line);padding-top:16px}.error{color:var(--red)}.refresh{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 11px;cursor:pointer}.refresh:hover{border-color:var(--amber)}
+.modal{position:fixed;inset:0;z-index:10;background:#080808ed;display:grid;place-items:center;padding:18px;overflow:auto}.modal-card{width:min(680px,100%);max-height:calc(100dvh - 36px);overflow:auto;background:#171717;border:1px solid #59421e;border-radius:18px;padding:clamp(20px,4vw,32px);box-shadow:0 20px 80px #000a}.modal-card h2{font-size:clamp(25px,4vw,34px);margin:8px 0}.modal-card>p{color:var(--muted);margin-top:0}.rules{display:grid;gap:12px;margin:20px 0}.rule{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#1d1d1d}.rule h3{font-size:14px;color:var(--amber);margin:0 0 4px}.rule p{font-size:13px;color:#d0d0d0;margin:0}.accept{display:flex;gap:10px;align-items:flex-start;color:#dedede;font-size:13px;margin:16px 0}.accept input{margin-top:4px;accent-color:var(--amber);width:17px;height:17px;flex:none}.continue{width:100%;border:0;border-radius:11px;padding:12px 16px;background:var(--amber);color:#17120a;font-weight:850;cursor:pointer}.continue:disabled{opacity:.35;cursor:not-allowed}.hidden{display:none!important}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.movement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{width:min(100% - 24px,1120px);padding-top:20px}.panel{padding:16px}}
+@media(max-width:420px){.movement-grid{grid-template-columns:1fr 1fr}.movement{padding:12px}.quantity{font-size:21px}.panel-head{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="modal" id="rulesModal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle">
+  <div class="modal-card">
+    <div class="eyebrow">P.O.V. · Gamer Bugar</div>
+    <h2 id="rulesTitle">Sebelum melihat Gembug Update</h2>
+    <p>Dengan melanjutkan, kamu memahami cara kerja Workout Bank dan event Gembug.</p>
+    <div class="rules">
+      <section class="rule"><h3>01 — Workout Bank</h3><p>Hanya donasi melalui soundboard Gembug yang terdaftar dan berhasil diproses yang menambah kewajiban latihan. Donasi biasa tidak dihitung. Repetisi atau durasi yang terkumpul menjadi tabungan latihan dan dapat diselesaikan bertahap; tidak harus langsung dalam satu sesi.</p></section>
+      <section class="rule"><h3>02 — Final Boss</h3><p>Final Boss adalah event terpisah: target bawaan 20 menit untuk menyelesaikan 25 push-up, 25 squat, 25 bicep curl, dan 25 band row. Jika berhasil, Workout Bank tidak berubah. Jika gagal, nilai Workout Bank dikalikan dua. Kewajiban tidak harus dikerjakan seketika.</p></section>
+      <section class="rule"><h3>03 — Time Attack</h3><p>Setiap aktivasi soundboard Time Attack yang valid mengurangi waktu Final Boss sebanyak 20 detik. Time Attack tidak menambah atau mengurangi Workout Bank secara langsung.</p></section>
+      <section class="rule"><h3>04 — Tampilan publik</h3><p>Halaman ini hanya untuk melihat status dan aturan. Data diperbarui otomatis secara berkala; halaman ini tidak menyediakan kontrol untuk mengubah Workout Bank, antrean, atau timer.</p></section>
+    </div>
+    <label class="accept"><input type="checkbox" id="acceptRules"><span>Saya sudah membaca dan memahami aturan di atas.</span></label>
+    <button class="continue" id="continueBtn" disabled>Lanjut ke Gembug Update</button>
+  </div>
+</div>
+<main class="wrap" id="dashboard" aria-hidden="true">
+  <div class="topline"><div class="brand">P.O.V. / GAMER BUGAR</div><div class="live"><span class="dot"></span><span id="connectionText">Menghubungkan data…</span></div></div>
+  <header class="hero"><div class="eyebrow">Community Workout Tracker</div><h1>Gembug <span style="color:var(--amber)">Update.</span></h1><p>Transparansi Workout Bank dan antrean Final Boss, diperbarui dari sistem Gembug.</p></header>
+  <section class="grid" aria-label="Ringkasan Gembug">
+    <article class="panel"><div class="panel-head"><h2>Workout Bank</h2><span class="tag">Tabungan latihan</span></div><div class="bank-list" id="bankList"><div class="empty">Memuat data Workout Bank…</div></div></article>
+    <article class="panel"><div class="panel-head"><h2>Final Boss Queue</h2><span class="tag">Antrean</span></div><div class="queue-list" id="queueList"><div class="empty">Memuat antrean…</div></div></article>
+  </section>
+  <section class="section"><div class="section-head"><div><h2>Soundboard Gembug</h2><p>Jumlah latihan dan harga sesuai konfigurasi aktif.</p></div><button class="refresh" id="refreshBtn" type="button">↻ Perbarui</button></div><div class="movement-grid" id="movementGrid"><div class="empty">Memuat konfigurasi soundboard…</div></div></section>
+  <footer class="foot"><span id="updatedAt">Terakhir diperbarui: —</span><span id="statusText">Data hanya-baca · refresh otomatis</span></footer>
+</main>
+<script>
+(() => {
+  const API = "/api/gembug-update";
+  const $ = id => document.getElementById(id);
+  const modal = $("rulesModal"), dashboard = $("dashboard"), checkbox = $("acceptRules"), continueBtn = $("continueBtn");
+  // Show rules before dashboard on every new browser session; no data is hidden by a server-side gate.
+  continueBtn.addEventListener("click", () => {
+    if (!checkbox.checked) return;
+    modal.classList.add("hidden"); dashboard.setAttribute("aria-hidden", "false");
+    loadData();
+  });
+  checkbox.addEventListener("change", () => { continueBtn.disabled = !checkbox.checked; });
+  const number = n => new Intl.NumberFormat("id-ID", { maximumFractionDigits: 2 }).format(Number(n || 0));
+  const rupiah = n => "Rp" + new Intl.NumberFormat("id-ID", { maximumFractionDigits: 0 }).format(Number(n || 0));
+  const safe = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const unitName = unit => ({rep:"repetisi",reps:"repetisi",sec:"detik",second:"detik",seconds:"detik",detik:"detik"}[String(unit || "rep").toLowerCase()] || safe(unit));
+  function renderBank(items) {
+    const el = $("bankList");
+    if (!items.length) { el.innerHTML = '<div class="empty">Belum ada data Workout Bank.</div>'; return; }
+    el.innerHTML = items.map(w => `<div class="bank-row"><div><div class="bank-name">${safe(w.name)}</div><div class="sub">Sudah masuk ${number(w.masuk)} · selesai ${number(w.dibayar)}</div></div><div class="amount">${number(w.sisa)}<div class="sub">${unitName(w.unit)} tersisa</div></div></div>`).join("");
+  }
+  function renderQueue(items) {
+    const el = $("queueList");
+    if (!items.length) { el.innerHTML = '<div class="empty">Antrean Final Boss sedang kosong.</div>'; return; }
+    el.innerHTML = items.map((q,i) => `<div class="queue-item"><div class="number">${number(q.position || i+1)}</div><div class="queue-name">${safe(q.donor || "Anonim")}</div><div class="queue-status">${safe(q.status || "Menunggu")}</div></div>`).join("");
+  }
+  function renderMovements(items) {
+    const el = $("movementGrid");
+    if (!items.length) { el.innerHTML = '<div class="empty">Belum ada soundboard yang dikonfigurasi.</div>'; return; }
+    el.innerHTML = items.map(w => `<article class="movement"><h3>${safe(w.name)}</h3><div class="quantity">${number(w.quantity)} <span style="font-size:13px;font-weight:650">${unitName(w.unit)}</span></div><div class="price">${rupiah(w.price)}</div>${w.active ? '' : '<span class="inactive">Nonaktif</span>'}</article>`).join("");
+  }
+  async function loadData() {
+    $("connectionText").textContent = "Memperbarui data…";
+    try {
+      const response = await fetch(API, { cache: "no-store", headers: { "Accept": "application/json" } });
+      const data = await response.json();
+      if (!response.ok || data.success !== true) throw new Error(data.error || "API belum siap");
+      renderBank(data.bank || []); renderQueue(data.queue || []); renderMovements(data.workouts || []);
+      $("connectionText").textContent = "Data tersambung";
+      $("statusText").textContent = "Data hanya-baca · refresh otomatis tiap 30 detik";
+      const date = new Date(data.updatedAt || Date.now());
+      $("updatedAt").textContent = "Terakhir diperbarui: " + (Number.isNaN(date.getTime()) ? "baru saja" : date.toLocaleString("id-ID"));
+    } catch (err) {
+      $("connectionText").textContent = "Data belum tersedia";
+      $("statusText").innerHTML = '<span class="error">API belum tersambung. Pastikan secret Cloudflare sudah diatur.</span>';
+      if (!$ ("bankList").dataset.loaded) {
+        $("bankList").innerHTML = '<div class="empty">Data belum bisa dimuat. Coba lagi sebentar.</div>';
+        $("queueList").innerHTML = '<div class="empty">Antrean belum bisa dimuat.</div>';
+        $("movementGrid").innerHTML = '<div class="empty">Konfigurasi belum bisa dimuat.</div>';
+      }
+      console.warn("Gembug Update API:", err.message);
+    }
+  }
+  $("refreshBtn").addEventListener("click", loadData);
+  // Refresh only while the page is visible to avoid needless requests.
+  setInterval(() => { if (!document.hidden && !modal.classList.contains("hidden")) return; if (!document.hidden) loadData(); }, 30000);
+})();
+</script>
+</body>
+</html>
