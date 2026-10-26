@@ -26,6 +26,31 @@
   opacity: 0.5;
 }
 
+  
+.back-to-pov {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #b8b8b8;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.back-to-pov span {
+  color: #ffbd2e;
+  font-size: 18px;
+  transition: transform 0.25s ease;
+}
+
+.back-to-pov:hover {
+  color: #ffbd2e;
+}
+
+.back-to-pov:hover span {
+  transform: translateX(-4px);
+}
+
 </style>
 </head>
 <body>
@@ -80,7 +105,11 @@
   </div>
 </div>
 <main class="wrap" id="dashboard" aria-hidden="true">
-  <div class="topline"><div class="brand">P.O.V. / GAMER BUGAR</div><div class="live"><span class="dot"></span><span id="connectionText">Menghubungkan data…</span></div></div>
+  <div class="topline"><div class="brand">P.O.V. / GAMER BUGAR</div><div class="live"><span class="dot"></span>   
+<a href="/" class="back-to-pov">
+  <span aria-hidden="true">←</span> Kembali ke P.O.V.
+</a>
+    <span id="connectionText">Menghubungkan data…</span></div></div>
   <header class="hero"><div class="eyebrow">Community Workout Tracker</div><h1>Gembug <span style="color:var(--amber)">Update.</span></h1><p>Transparansi Workout Bank dan antrean Final Boss, diperbarui dari sistem Gembug.</p></header>
   <section class="grid" aria-label="Ringkasan Gembug">
     <article class="panel"><div class="panel-head"><h2>Workout Bank</h2><span class="tag">Tabungan latihan</span></div><div class="bank-list" id="bankList"><div class="empty">Memuat data Workout Bank…</div></div></article>
