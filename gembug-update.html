@@ -51,6 +51,54 @@
   transform: translateX(-4px);
 }
 
+
+/* Tombol kembali ke website P.O.V. */
+.back-to-pov {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.back-to-pov span {
+  color: var(--amber);
+  font-size: 18px;
+  transition: transform 0.25s ease;
+}
+
+.back-to-pov:hover {
+  color: var(--amber);
+}
+
+.back-to-pov:hover span {
+  transform: translateX(-4px);
+}
+
+/* Atur posisi header */
+.topline {
+  flex-wrap: wrap;
+}
+
+.back-to-pov {
+  margin-right: auto;
+}
+
+@media (max-width: 520px) {
+  .topline {
+    gap: 12px;
+  }
+
+  .back-to-pov {
+    order: 3;
+    width: 100%;
+    margin-top: 4px;
+  }
+}
+ 
 </style>
 </head>
 <body>
