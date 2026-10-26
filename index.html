@@ -1028,6 +1028,84 @@
   }
 }
 
+
+/* ===== ABOUT SECTION: SCROLL ANIMATIONS ===== */
+
+@keyframes aboutTitleSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutTextFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes platformCardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kondisi awal sebelum animasi dipicu */
+.about-intro .welcome-title,
+.about-intro .intro-copy,
+.about-section .platform-item,
+.about-section .platform-closing {
+  opacity: 0;
+}
+
+/* Animasi ketika bagian About mulai terlihat */
+.about-section.about-animate .welcome-title {
+  animation: aboutTitleSlideRight 800ms ease-out forwards !important;
+}
+
+.about-section.about-animate .intro-copy {
+  animation: aboutTextFadeIn 1000ms ease-out 250ms forwards !important;
+}
+
+.about-section.about-animate .platform-item:nth-child(1) {
+  animation: platformCardSlideUp 800ms ease-out 350ms forwards !important;
+}
+
+.about-section.about-animate .platform-item:nth-child(2) {
+  animation: platformCardSlideUp 800ms ease-out 500ms forwards !important;
+}
+
+.about-section.about-animate .platform-item:nth-child(3) {
+  animation: platformCardSlideUp 800ms ease-out 650ms forwards !important;
+}
+
+.about-section.about-animate .platform-closing {
+  animation: aboutTextFadeIn 800ms ease-out 850ms forwards !important;
+}
+
+/* Hormati preferensi pengurangan gerakan */
+@media (prefers-reduced-motion: reduce) {
+  .about-intro .welcome-title,
+  .about-intro .intro-copy,
+  .about-section .platform-item,
+  .about-section .platform-closing {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+   
   </style>
 </head>
 
@@ -1355,8 +1433,31 @@ window.addEventListener("wheel", (event) => {
     animateTo(0);
   }
 }, { passive: false });
+ })();
 
-    })();
+/* Memicu animasi About saat bagian masuk ke layar */
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutSection = document.querySelector(".about-section");
+
+  if (!aboutSection) return;
+
+  const aboutObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          aboutSection.classList.add("about-animate");
+          aboutObserver.unobserve(aboutSection);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  aboutObserver.observe(aboutSection);
+});
+    
   </script>
 </body>
 </html>
