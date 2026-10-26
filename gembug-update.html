@@ -11,6 +11,21 @@
 .modal{position:fixed;inset:0;z-index:10;background:#080808ed;display:grid;place-items:center;padding:18px;overflow:auto}.modal-card{width:min(680px,100%);max-height:calc(100dvh - 36px);overflow:auto;background:#171717;border:1px solid #59421e;border-radius:18px;padding:clamp(20px,4vw,32px);box-shadow:0 20px 80px #000a}.modal-card h2{font-size:clamp(25px,4vw,34px);margin:8px 0}.modal-card>p{color:var(--muted);margin-top:0}.rules{display:grid;gap:12px;margin:20px 0}.rule{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#1d1d1d}.rule h3{font-size:14px;color:var(--amber);margin:0 0 4px}.rule p{font-size:13px;color:#d0d0d0;margin:0}.accept{display:flex;gap:10px;align-items:flex-start;color:#dedede;font-size:13px;margin:16px 0}.accept input{margin-top:4px;accent-color:var(--amber);width:17px;height:17px;flex:none}.continue{width:100%;border:0;border-radius:11px;padding:12px 16px;background:var(--amber);color:#17120a;font-weight:850;cursor:pointer}.continue:disabled{opacity:.35;cursor:not-allowed}.hidden{display:none!important}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.movement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{width:min(100% - 24px,1120px);padding-top:20px}.panel{padding:16px}}
 @media(max-width:420px){.movement-grid{grid-template-columns:1fr 1fr}.movement{padding:12px}.quantity{font-size:21px}.panel-head{align-items:flex-start}}
+  
+.final-boss-total {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.final-boss-note {
+  font-size: 10px;
+  font-style: italic;
+  color: #858585;
+  opacity: 0.5;
+}
+
 </style>
 </head>
 <body>
@@ -21,7 +36,43 @@
     <p>Dengan melanjutkan, kamu memahami cara kerja Workout Bank dan event Gembug.</p>
     <div class="rules">
       <section class="rule"><h3>01 — Workout Bank</h3><p>Hanya donasi melalui soundboard Gembug yang terdaftar dan berhasil diproses yang menambah kewajiban latihan. Donasi biasa tidak dihitung. Repetisi atau durasi yang terkumpul menjadi tabungan latihan dan dapat diselesaikan bertahap; tidak harus langsung dalam satu sesi.</p></section>
-      <section class="rule"><h3>02 — Final Boss</h3><p>Final Boss adalah event terpisah: target bawaan 20 menit untuk menyelesaikan 25 push-up, 25 squat, 25 bicep curl, dan 25 band row. Jika berhasil, Workout Bank tidak berubah. Jika gagal, nilai Workout Bank dikalikan dua. Kewajiban tidak harus dikerjakan seketika.</p></section>
+      
+<section class="rule">
+  <h3>02 — Final Boss</h3>
+
+  <p>
+    Setiap Final Boss terdiri dari 4 jenis workout dengan total
+    100 repetisi dalam waktu maksimal 20 menit.
+  </p>
+
+  <p>
+    Contoh pembagian workout:
+  </p>
+
+  <ul>
+    <li>Push-up: 25 rep</li>
+    <li>Squat: 25 rep</li>
+    <li>Bicep Curl: 25 rep</li>
+    <li>Band Row: 25 rep</li>
+  </ul>
+
+  <p class="final-boss-total">
+    <strong>Total: 100 rep</strong>
+    <span class="final-boss-note">(or Make me an offer I can't refuse.)</span>
+  </p>
+
+  <p>
+    Pembagian repetisi tidak harus sama untuk setiap gerakan.
+    Donatur bebas menentukan jumlah rep masing-masing workout,
+    selama total keseluruhannya tetap 100 rep.
+  </p>
+
+  <p>
+    Jenis workout ditentukan melalui wheel spin atau kesepakatan
+    antara streamer dan donatur sebelum tantangan dimulai.
+  </p>
+</section>
+
       <section class="rule"><h3>03 — Time Attack</h3><p>Setiap aktivasi soundboard Time Attack yang valid mengurangi waktu Final Boss sebanyak 20 detik. Time Attack tidak menambah atau mengurangi Workout Bank secara langsung.</p></section>
     </div>
     <label class="accept"><input type="checkbox" id="acceptRules"><span>Saya sudah membaca dan memahami aturan di atas.</span></label>
