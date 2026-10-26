@@ -962,6 +962,52 @@
     animation: povArrowBounce 0.7s ease-in-out infinite !important;
   }
 }   
+
+/* Quick Access: slide-up + fade-in saat halaman dibuka */
+@keyframes quickAccessSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.access-section .folder-card {
+  animation: quickAccessSlideUp 800ms ease-out both;
+}
+
+/* Munculkan kartu secara bergantian */
+.access-section .folder-card:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.access-section .folder-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.access-section .folder-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.access-section .folder-card:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.access-section .folder-card:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+/* Hormati pengaturan pengurangan animasi perangkat */
+@media (prefers-reduced-motion: reduce) {
+  .access-section .folder-card {
+    animation: none;
+  }
+}
+  
   </style>
 </head>
 
