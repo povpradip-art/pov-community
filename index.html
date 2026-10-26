@@ -1002,13 +1002,32 @@
 }
 
 /* Hormati pengaturan pengurangan animasi perangkat */
-    /*
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: no-preference) {
   .access-section .folder-card {
-    animation: none;
+    animation: quickAccessSlideUp 800ms ease-out both;
+  }
+
+  .access-section .folder-card:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  .access-section .folder-card:nth-child(2) {
+    animation-delay: 100ms;
+  }
+
+  .access-section .folder-card:nth-child(3) {
+    animation-delay: 200ms;
+  }
+
+  .access-section .folder-card:nth-child(4) {
+    animation-delay: 300ms;
+  }
+
+  .access-section .folder-card:nth-child(5) {
+    animation-delay: 400ms;
   }
 }
-  */
+
   </style>
 </head>
 
